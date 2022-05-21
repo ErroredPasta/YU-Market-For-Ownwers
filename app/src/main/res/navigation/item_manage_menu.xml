@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_manage_menu"
+    app:startDestination="@id/itemManageFragment">
+
+    <fragment
+        android:id="@+id/itemManageFragment"
+        android:name="com.example.yumarketforowners.screen.itemmanage.ItemManageFragment"
+        android:label="ItemManageFragment" />
+
+</navigation>
