@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/item_manage_menu">
+
+    <include app:graph="@navigation/item_manage_menu" />
+    <include app:graph="@navigation/market_manage_menu" />
+    <include app:graph="@navigation/order_list_menu" />
+    <include app:graph="@navigation/review_manage_menu" />
+
+</navigation>
