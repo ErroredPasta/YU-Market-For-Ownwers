@@ -14,11 +14,7 @@ object ViewFactory {
         type: ViewType,
         inflater: LayoutInflater,
         parent: ViewGroup?
-    ): V {
-        val (clazz, layoutId) = type
-
-        return clazz.primaryConstructor!!.call(
-            DataBindingUtil.inflate(inflater, layoutId, parent, false)
-        ) as V
-    }
+    ): V = type.clazz.primaryConstructor!!.call(
+        DataBindingUtil.inflate(inflater, type.layoutId, parent, false)
+    ) as V
 }
