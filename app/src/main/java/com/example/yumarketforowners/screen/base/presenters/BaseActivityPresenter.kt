@@ -1,13 +1,14 @@
-package com.example.yumarketforowners.screen.base
+package com.example.yumarketforowners.screen.base.presenters
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil.setContentView
 import com.example.yumarketforowners.screen.ViewType
 import com.example.yumarketforowners.screen.base.mvp.BasePresenter
 import com.example.yumarketforowners.screen.base.mvp.BaseView
 import com.example.yumarketforowners.util.view.ViewFactory
 
-abstract class BaseActivity<V : BaseView<*>> : AppCompatActivity(), BasePresenter {
+abstract class BaseActivityPresenter<V : BaseView<*>> : AppCompatActivity(), BasePresenter {
     protected val view: V by lazy {
         ViewFactory.create(viewType, layoutInflater, null)
     }

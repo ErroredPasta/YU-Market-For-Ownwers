@@ -1,8 +1,8 @@
 package com.example.yumarketforowners.screen.reviewmanage
 
 import com.example.yumarketforowners.screen.ViewType
-import com.example.yumarketforowners.screen.base.BaseFragment
+import com.example.yumarketforowners.screen.base.presenters.BaseFragmentPresenter
 
-class ReviewManageFragment : BaseFragment<ReviewManageFragmentView>() {
+class ReviewManageFragmentPresenter : BaseFragmentPresenter<ReviewManageFragmentView>() {
     override val viewType: ViewType = ViewType.REVIEW_MANAGE_FRAGMENT_VIEW
 }

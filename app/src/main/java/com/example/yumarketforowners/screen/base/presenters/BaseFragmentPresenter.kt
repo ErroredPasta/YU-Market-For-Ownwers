@@ -1,4 +1,4 @@
-package com.example.yumarketforowners.screen.base
+package com.example.yumarketforowners.screen.base.presenters
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import com.example.yumarketforowners.screen.base.mvp.BasePresenter
 import com.example.yumarketforowners.screen.base.mvp.BaseView
 import com.example.yumarketforowners.util.view.ViewFactory
 
-abstract class BaseFragment<V : BaseView<*>> : Fragment(), BasePresenter {
+abstract class BaseFragmentPresenter<V : BaseView<*>> : Fragment(), BasePresenter {
     private var _view: V? = null
     protected val view get() = _view!!
 
