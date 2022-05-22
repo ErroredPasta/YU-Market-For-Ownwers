@@ -11,7 +11,7 @@
         android:name=".YUMarket"
         android:theme="@style/Theme.YUMarketForOwners">
         <activity
-            android:name=".screen.MainActivity"
+            android:name=".screen.MainActivityPresenter"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

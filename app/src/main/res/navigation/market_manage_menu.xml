@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/marketManageFragment"
-        android:name="com.example.yumarketforowners.screen.marketmanage.MarketManageFragment"
+        android:name="com.example.yumarketforowners.screen.marketmanage.MarketManageFragmentPresenter"
         android:label="MarketManageFragment" />
 </navigation>
