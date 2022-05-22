@@ -1,9 +1,9 @@
 package com.example.yumarketforowners.screen.base.mvp
 
-import androidx.databinding.ViewDataBinding
+import androidx.viewbinding.ViewBinding
 import com.example.yumarketforowners.util.Observable
 
-abstract class BaseObservableView<VB : ViewDataBinding, L>(
+abstract class BaseObservableView<VB : ViewBinding, L>(
     binding: VB
 ) : Observable<L>, BaseView<VB>(binding) {
     protected val listeners = HashSet<L>()
