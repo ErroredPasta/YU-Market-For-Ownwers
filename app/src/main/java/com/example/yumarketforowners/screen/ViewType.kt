@@ -2,7 +2,7 @@ package com.example.yumarketforowners.screen
 
 import androidx.annotation.LayoutRes
 import com.example.yumarketforowners.R
-import com.example.yumarketforowners.screen.itemmanage.ItemManageFragmentView
+import com.example.yumarketforowners.screen.itemmanage.ItemListFragmentView
 import com.example.yumarketforowners.screen.marketmanage.MarketManageFragmentView
 import com.example.yumarketforowners.screen.orderlist.OrderListFragmentView
 import com.example.yumarketforowners.screen.reviewmanage.ReviewManageFragmentView
@@ -14,10 +14,12 @@ enum class ViewType(
 ) {
     MAIN_ACTIVITY_VIEW(MainActivityView::class, R.layout.activity_main),
 
-    ITEM_MANAGE_FRAGMENT_VIEW(ItemManageFragmentView::class, R.layout.item_manage_fragment),
+//    ITEM_MANAGE_FRAGMENT_VIEW(ItemManageFragmentView::class, R.layout.item_manage_fragment),
     MARKET_MANAGE_FRAGMENT_VIEW(MarketManageFragmentView::class, R.layout.market_manage_fragment),
     ORDER_LIST_FRAGMENT_VIEW(OrderListFragmentView::class, R.layout.order_list_fragment),
     REVIEW_MANAGE_FRAGMENT_VIEW(ReviewManageFragmentView::class, R.layout.review_manage_fragment),
+
+    ITEM_LIST_FRAGMENT_VIEW(ItemListFragmentView::class, R.layout.item_list_fragment),
 
     ;
 
