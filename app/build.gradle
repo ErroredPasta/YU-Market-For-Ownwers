@@ -66,5 +66,14 @@ dependencies {
     androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
     // ================================================================================== //
 
+    // =================================== fast adapter api =================================== //
+    def latestFastAdapterRelease = "5.6.0"
+
+    implementation "com.mikepenz:fastadapter:${latestFastAdapterRelease}"
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
+
+    implementation "com.mikepenz:fastadapter-extensions-binding:${latestFastAdapterRelease}" // view binding helpers
+    // ======================================================================================== //
+
     implementation "org.jetbrains.kotlin:kotlin-reflect:1.6.21"
 }
