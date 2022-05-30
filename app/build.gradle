@@ -1,9 +1,13 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 
     // navigation safe args kotlin
     id 'androidx.navigation.safeargs.kotlin'
+
+    // dagger hilt
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
@@ -42,6 +46,10 @@ android {
     }
 }
 
+kapt {
+    correctErrorTypes true
+}
+
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -74,6 +82,11 @@ dependencies {
 
     implementation "com.mikepenz:fastadapter-extensions-binding:${latestFastAdapterRelease}" // view binding helpers
     // ======================================================================================== //
+
+    // =================================== dagger hilt =================================== //
+    implementation 'com.google.dagger:hilt-android:2.42'
+    kapt 'com.google.dagger:hilt-compiler:2.42'
+    // =================================================================================== //
 
     implementation "org.jetbrains.kotlin:kotlin-reflect:1.6.21"
 }
