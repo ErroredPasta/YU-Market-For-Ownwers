@@ -1,4 +1,4 @@
-package com.example.yumarketforowners.screen.base.views
+package com.example.yumarketforowners.screen.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,9 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseFragmentView<VB : ViewBinding> : Fragment() {
+abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     private var _binding: VB? = null
-    protected val binding get() = _binding!!
+    protected val binding: VB get() = _binding!!
+
+    protected abstract fun getViewBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?
+    ): VB
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,11 +31,11 @@ abstract class BaseFragmentView<VB : ViewBinding> : Fragment() {
     }
 
     override fun onDestroyView() {
-        beforeDestroy()
+        beforeDestroyView()
+        _binding = null
         super.onDestroyView()
     }
 
     protected open fun initState() = Unit
-    protected open fun beforeDestroy() = Unit
-    protected abstract fun getViewBinding(inflater: LayoutInflater, container: ViewGroup?): VB
+    protected open fun beforeDestroyView() = Unit
 }
