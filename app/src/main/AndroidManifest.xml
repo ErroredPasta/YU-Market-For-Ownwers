@@ -8,10 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".YUMarket"
+        android:name=".YUMarketApplication"
         android:theme="@style/Theme.YUMarketForOwners">
         <activity
-            android:name=".screen.MainActivityPresenter"
+            android:name=".screen.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
