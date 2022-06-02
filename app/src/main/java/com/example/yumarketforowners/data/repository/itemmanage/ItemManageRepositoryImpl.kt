@@ -1,8 +1,10 @@
 package com.example.yumarketforowners.data.repository.itemmanage
 
-import com.example.yumarketforowners.data.model.ItemModel
+import com.example.yumarketforowners.data.model.itemmanage.ItemModel
+import com.example.yumarketforowners.screen.itemmanage.ItemManageContract
+import javax.inject.Inject
 
-class ItemManageRepositoryImpl : ItemManageRepository {
+class ItemManageRepositoryImpl @Inject constructor() : ItemManageRepository {
     private val testList = (1..10).map {
         ItemModel(
             id = it.toLong(),
@@ -13,6 +15,6 @@ class ItemManageRepositoryImpl : ItemManageRepository {
         )
     }
 
-    override fun getItemsByAvailability(available: Boolean): List<ItemModel> =
-        testList.filter { it.available }
+    override fun getItemsByMarketId(marketId: Long): ItemManageContract.State =
+        ItemManageContract.State.Success(items = testList)
 }
