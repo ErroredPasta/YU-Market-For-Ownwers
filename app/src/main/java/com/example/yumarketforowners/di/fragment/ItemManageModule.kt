@@ -20,7 +20,6 @@ abstract class ItemManageModule {
     abstract fun bindItemManagePresenter(presenter: ItemManagePresenter): ItemManageContract.Presenter
 
     @Binds
-    @FragmentScoped
     abstract fun bindItemManageRepository(repository: ItemManageRepositoryImpl): ItemManageRepository
 
     companion object {
