@@ -1,6 +1,7 @@
-package com.example.yumarketforowners.adapter.viewholder
+package com.example.yumarketforowners.adapter.viewholder.orderlist
 
 import com.example.yumarketforowners.adapter.listener.AdapterListener
+import com.example.yumarketforowners.adapter.viewholder.BaseViewHolder
 import com.example.yumarketforowners.data.model.orderlist.OrderModel
 import com.example.yumarketforowners.databinding.OrderViewHolderBinding
 
