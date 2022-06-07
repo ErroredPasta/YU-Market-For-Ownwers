@@ -14,4 +14,5 @@ enum class CellType(
     ITEM_CELL(ItemViewHolder::class, R.layout.item_view_holder),
     REVIEW_CELL(ReviewViewHolder::class, R.layout.review_view_holder),
     CHAT_ROOM_CELL(ChatRoomViewHolder::class, R.layout.chat_room_view_holder),
+    ORDER_CELL(OrderViewHolder::class, R.layout.order_view_holder),
 }
