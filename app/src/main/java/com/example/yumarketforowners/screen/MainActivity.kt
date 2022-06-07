@@ -1,10 +1,12 @@
 package com.example.yumarketforowners.screen
 
-import androidx.navigation.NavHost
+import androidx.navigation.NavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.yumarketforowners.databinding.ActivityMainBinding
 import com.example.yumarketforowners.screen.base.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
+import javax.inject.Provider
 
 @AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding>() {
@@ -12,10 +14,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         ActivityMainBinding.inflate(layoutInflater)
     }
 
-    private val navController by lazy {
-        (binding.fragmentContainerView.getFragment() as NavHost)
-            .navController
-    }
+    @Inject
+    lateinit var navControllerProvider: Provider<NavController>
+
+    private val navController by lazy { navControllerProvider.get() }
 
     override fun initState() = with(binding) {
         bottomNavigationView.setupWithNavController(navController)
