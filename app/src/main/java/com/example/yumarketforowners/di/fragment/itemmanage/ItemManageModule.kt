@@ -1,4 +1,4 @@
-package com.example.yumarketforowners.di.fragment
+package com.example.yumarketforowners.di.fragment.itemmanage
 
 import androidx.fragment.app.Fragment
 import com.example.yumarketforowners.data.repository.itemmanage.ItemManageRepository
