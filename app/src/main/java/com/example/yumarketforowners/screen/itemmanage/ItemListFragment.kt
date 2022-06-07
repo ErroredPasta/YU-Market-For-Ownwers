@@ -21,7 +21,7 @@ class ItemListFragment : BaseFragment<ItemListFragmentBinding>() {
     }
 
     private val adapter by lazy {
-        ModelRecyclerAdapter<ItemModel, ItemViewHolder>(
+        ModelRecyclerAdapter<ItemModel>(
             listOf(),
             object : ItemManageViewHolderListener {}
         )
