@@ -41,10 +41,14 @@ class ItemManageFragment :
             binding.itemManageTabLayout
         )
 
-        if (!dataLoaded) {
-            presenter.requestData()
-            dataLoaded = true
-        }
+        // TODO: 2022.06.05 request data using market id
+        presenter.requestData(0)
+
+//        if (!dataLoaded) {
+//            presenter.requestData()
+//        } else {
+//            onRequestDataSuccess(data)
+//        }
     }
 
     override fun loading(show: Boolean) {

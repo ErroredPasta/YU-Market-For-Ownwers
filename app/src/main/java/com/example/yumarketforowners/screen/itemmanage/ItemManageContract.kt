@@ -11,7 +11,7 @@ interface ItemManageContract {
     }
 
     interface Presenter {
-        fun requestData()
+        fun requestData(marketId: Long)
     }
 
     sealed class State {

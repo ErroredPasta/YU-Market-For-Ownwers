@@ -8,10 +8,10 @@ class  ItemManagePresenter @Inject constructor(
     private val itemManageRepository: ItemManageRepository
 ) : ItemManageContract.Presenter {
 
-    override fun requestData() {
+    override fun requestData(marketId: Long) {
         view.loading(show = true)
         // TODO: 2022.05.27 get item by market id
-        val result = itemManageRepository.getItemsByMarketId(0)
+        val result = itemManageRepository.getItemsByMarketId(marketId)
         view.loading(show = false)
 
         if (result is ItemManageContract.State.Success) {
