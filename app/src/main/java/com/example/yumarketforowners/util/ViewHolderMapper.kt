@@ -5,15 +5,16 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.example.yumarketforowners.adapter.viewholder.BaseViewHolder
 import com.example.yumarketforowners.adapter.viewholder.CellType
+import com.example.yumarketforowners.data.model.BaseModel
 import kotlin.reflect.full.primaryConstructor
 
 object ViewHolderMapper {
     @Suppress("UNCHECKED_CAST")
-    fun <VH : BaseViewHolder<*, *>> map(
+    fun <M : BaseModel> map(
         layoutInflater: LayoutInflater,
         parent: ViewGroup?,
         cellType: CellType
     ) = cellType.clazz.primaryConstructor!!.call(
         DataBindingUtil.inflate(layoutInflater, cellType.layoutId, parent, false)
-    ) as VH
+    ) as BaseViewHolder<*, M>
 }
