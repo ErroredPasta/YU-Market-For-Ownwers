@@ -4,9 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.StringRes
-import com.example.yumarketforowners.adapter.ViewPagerAdapter
 import com.example.yumarketforowners.data.model.itemmanage.ItemModel
-import com.example.yumarketforowners.data.repository.itemmanage.ItemManageRepositoryImpl
 import com.example.yumarketforowners.databinding.ItemManageFragmentBinding
 import com.example.yumarketforowners.screen.base.BaseViewPagerFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -60,6 +58,8 @@ class ItemManageFragment :
         for (innerFragment in innerFragments) {
             innerFragment.items = items
         }
+
+        dataLoaded = true
     }
 
     override fun onRequestDataError(@StringRes errorMessage: Int) {
