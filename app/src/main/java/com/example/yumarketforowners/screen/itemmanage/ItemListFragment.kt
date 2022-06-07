@@ -1,12 +1,10 @@
 package com.example.yumarketforowners.screen.itemmanage
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import com.example.yumarketforowners.adapter.ModelRecyclerAdapter
 import com.example.yumarketforowners.adapter.listener.itemmanage.ItemManageViewHolderListener
-import com.example.yumarketforowners.adapter.viewholder.itemmanage.ItemViewHolder
 import com.example.yumarketforowners.data.model.itemmanage.ItemModel
 import com.example.yumarketforowners.databinding.ItemListFragmentBinding
 import com.example.yumarketforowners.screen.base.BaseFragment
@@ -33,16 +31,14 @@ class ItemListFragment : BaseFragment<ItemListFragmentBinding>() {
 
     var items = listOf<ItemModel>()
         set(value) {
-            val filtered = value.filter {
-                it.available == available
-            }
-
-            adapter.submitList(filtered)
-            field = filtered
+            field = value.filter { it.available == available }
+            adapter.submitList(field)
         }
 
     override fun initState() = with(binding) {
         itemListRecyclerView.adapter = adapter
+
+        adapter.submitList(items)
     }
 
     override fun getViewBinding(
