@@ -30,7 +30,27 @@ class OrderListViewPagerFragment : BaseFragment<ViewPagerFragmentOrderListBindin
 
     private val adapter by lazy {
         ModelRecyclerAdapter<OrderModel>(
-            listOf(), object : OrderViewHolderListener {}
+            listOf(), object : OrderViewHolderListener {
+                override fun onTelePhoneNumberClicked(telePhoneNumber: String) {
+                    // TODO: 2022.06.09 start telephone screen with number
+                    Toast.makeText(context, "$telePhoneNumber clicked", Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onAcceptOrderButtonClicked(order: OrderModel) {
+                    // TODO: 2022.06.09 handle accept order
+                    Toast.makeText(context, "$order accept button clicked", Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onRejectOrderButtonClicked(order: OrderModel) {
+                    // TODO: 2022.06.09 handle reject order
+                    Toast.makeText(context, "$order reject button clicked", Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onDeliveryDoneButtonClicked(order: OrderModel) {
+                    // TODO: 2022.06.09 handle delivery done
+                    Toast.makeText(context, "$order done button clicked", Toast.LENGTH_SHORT).show()
+                }
+            }
         )
     }
 
