@@ -24,9 +24,9 @@
             android:id="@+id/itemCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="@={itemModel.checkedForStateChange}"
             android:scaleX="1.5"
             android:scaleY="1.5"
-            android:checked="@={itemModel.checkedForStateChange}"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -99,6 +99,7 @@
                     android:layout_height="25dp"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
+                    android:onClick="@{() -> listener.onMinusButtonClick(itemModel)}"
                     app:icon="@drawable/ic_baseline_remove_24"
                     app:iconPadding="0dp"
                     app:iconSize="10dp" />
@@ -120,6 +121,7 @@
                     android:layout_height="25dp"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
+                    android:onClick="@{() -> listener.onPlusButtonClick(itemModel)}"
                     app:icon="@drawable/ic_baseline_add_24"
                     app:iconPadding="0dp"
                     app:iconSize="10dp" />
@@ -130,6 +132,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> listener.onEditItemButtonClick(itemModel)}"
             android:text="@string/edit_item"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
