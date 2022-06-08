@@ -11,21 +11,26 @@ import com.example.yumarketforowners.util.ViewHolderMapper
 
 class ModelRecyclerAdapter<M : BaseModel>(
     private var modelList: List<BaseModel>,
-    private val adapterListener: AdapterListener
+    private val adapterListener: AdapterListener? = null
 ) : ListAdapter<BaseModel, BaseViewHolder<*, M>>(BaseModel.ModelDiffCallback) {
+
+    init {
+        submitList(modelList)
+    }
 
     override fun getItemViewType(position: Int): Int = modelList[position].cellType.ordinal
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*, M> = ViewHolderMapper.map(
-        LayoutInflater.from(parent.context),
-        parent,
-        CellType.values()[viewType]
-    )
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder<*, M> =
+        ViewHolderMapper.map(
+            LayoutInflater.from(parent.context),
+            parent,
+            CellType.values()[viewType]
+        )
 
     @Suppress("UNCHECKED_CAST")
     override fun onBindViewHolder(holder: BaseViewHolder<*, M>, position: Int) {
         holder.bindData(modelList[position] as M)
-        holder.bindListener(adapterListener)
+        adapterListener?.let { holder.bindListener(it) }
     }
 
     override fun submitList(list: List<BaseModel>?) {
