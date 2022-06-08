@@ -7,6 +7,8 @@ data class ItemModel(
     override val id: Long,
     val name: String,
     val price: Int,
+    val saleRatio: Int,
     val imageUrl: String,
-    val available: Boolean
+    var available: Boolean,
+    var checkedForStateChange: Boolean
 ) : BaseModel(id, CellType.ITEM_CELL)
