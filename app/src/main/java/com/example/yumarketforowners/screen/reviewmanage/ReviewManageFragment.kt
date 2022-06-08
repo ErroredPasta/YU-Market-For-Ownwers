@@ -2,7 +2,6 @@ package com.example.yumarketforowners.screen.reviewmanage
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.example.yumarketforowners.adapter.ViewPagerAdapter
 import com.example.yumarketforowners.databinding.FragmentReviewManageBinding
 import com.example.yumarketforowners.di.fragment.reviewmanage.ReviewManageComponent
 import com.example.yumarketforowners.screen.base.BaseViewPagerFragment
@@ -34,8 +33,6 @@ class ReviewManageFragment : BaseViewPagerFragment<FragmentReviewManageBinding>(
             it.tabString
         }
     }
-
-    private lateinit var viewPagerAdapter: ViewPagerAdapter
 
     override fun initState() {
         initViewPagerAndTabLayout(
