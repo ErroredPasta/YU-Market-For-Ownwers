@@ -23,7 +23,7 @@ abstract class BaseViewPagerFragment<VB : ViewBinding> : BaseFragment<VB>() {
 
             TabLayoutMediator(tabLayout, viewPager) { tab, position ->
                 tab.text = tabStrings[position]
-            }
+            }.attach()
         }
     }
 }
