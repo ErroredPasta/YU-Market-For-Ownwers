@@ -53,7 +53,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{itemModel.available ? `판매중` : `판매중지`}"
-                    android:textColor="#ff0000"
+                    android:textColor="@color/red"
                     android:textSize="12sp"
                     tools:text="판매중" />
 
@@ -110,6 +110,7 @@
                     android:layout_height="25dp"
                     android:insetTop="0dp"
                     android:insetBottom="0dp"
+                    android:text="@{Integer.toString(itemModel.count)}"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                     android:textSize="11sp"
