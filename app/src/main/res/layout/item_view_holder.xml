@@ -9,21 +9,131 @@
             name="itemModel"
             type="com.example.yumarketforowners.data.model.itemmanage.ItemModel" />
 
+        <variable
+            name="listener"
+            type="com.example.yumarketforowners.adapter.listener.itemmanage.ItemManageViewHolderListener" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="10dp">
 
-        <TextView
-            android:layout_width="match_parent"
+        <CheckBox
+            android:id="@+id/itemCheckBox"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{itemModel.name}"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:checked="@={itemModel.checkedForStateChange}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toRightOf="@id/itemCheckBox"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{itemModel.name}"
+                android:textSize="25sp"
+                tools:text="item name" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{itemModel.available ? `판매중` : `판매중지`}"
+                    android:textColor="#ff0000"
+                    android:textSize="12sp"
+                    tools:text="판매중" />
+
+                <!-- todo 2022.06.08 define string resource for price text -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:text="@{Integer.toString(itemModel.price)}"
+                    android:textSize="12sp"
+                    tools:text="7,000" />
+
+                <!-- todo 2022.06.08 define string resource for sale ratio -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{`(` + Integer.toString(itemModel.saleRatio) + `)%`}"
+                    android:textSize="12sp"
+                    tools:text="(35%)" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/itemStockTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/item_stock"
+                android:textSize="11sp" />
+
+            <LinearLayout
+                android:id="@+id/itemButtonSet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingTop="5dp"
+                tools:layout_editor_absoluteY="100dp">
+
+                <Button
+                    style="?materialButtonOutlinedStyle"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    app:icon="@drawable/ic_baseline_remove_24"
+                    app:iconPadding="0dp"
+                    app:iconSize="10dp" />
+
+                <Button
+                    style="?materialButtonOutlinedStyle"
+                    android:layout_width="40dp"
+                    android:layout_height="25dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    android:textSize="11sp"
+                    tools:text="25" />
+
+                <Button
+                    style="?materialButtonOutlinedStyle"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    app:icon="@drawable/ic_baseline_add_24"
+                    app:iconPadding="0dp"
+                    app:iconSize="10dp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_item"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="item name" />
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
