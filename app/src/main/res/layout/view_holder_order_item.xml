@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="itemModel"
+            type="com.example.yumarketforowners.data.model.itemmanage.ItemModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="95dp"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/orderItemImageView"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:contentDescription="@string/order_item_image_description"
+            app:imageUrl="@{itemModel.imageUrl}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:text="@{itemModel.name}"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toRightOf="@id/orderItemImageView"
+            app:layout_constraintTop_toTopOf="@id/orderItemImageView"
+            tools:text="item name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:text="@{itemModel.price + `원`}"
+            app:layout_constraintBottom_toBottomOf="@id/orderItemImageView"
+            app:layout_constraintLeft_toRightOf="@id/orderItemImageView"
+            tools:text="11000원" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
