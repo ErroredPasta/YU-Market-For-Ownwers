@@ -2,6 +2,7 @@ package com.example.yumarketforowners.screen.orderlist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import com.example.yumarketforowners.adapter.ModelRecyclerAdapter
 import com.example.yumarketforowners.adapter.listener.orderlist.OrderViewHolderListener
@@ -11,10 +12,10 @@ import com.example.yumarketforowners.screen.base.BaseFragment
 
 class OrderListViewPagerFragment : BaseFragment<ViewPagerFragmentOrderListBinding>() {
     companion object {
-        private const val ORDER_TYPE_KEY = "ORDER_TYPE_KEY"
+        private const val ORDER_STATE_KEY = "ORDER_STATE_KEY"
 
-        fun newInstance(orderType: OrderType) = OrderListViewPagerFragment().apply {
-            arguments = bundleOf(ORDER_TYPE_KEY to orderType)
+        fun newInstance(orderState: OrderState) = OrderListViewPagerFragment().apply {
+            arguments = bundleOf(ORDER_STATE_KEY to orderState)
         }
     }
 
@@ -23,8 +24,8 @@ class OrderListViewPagerFragment : BaseFragment<ViewPagerFragmentOrderListBindin
         container: ViewGroup?
     ) = ViewPagerFragmentOrderListBinding.inflate(inflater, container, false)
 
-    private val orderType by lazy {
-        requireArguments()[ORDER_TYPE_KEY] as OrderType
+    private val orderState by lazy {
+        requireArguments()[ORDER_STATE_KEY] as OrderState
     }
 
     private val adapter by lazy {
@@ -35,7 +36,7 @@ class OrderListViewPagerFragment : BaseFragment<ViewPagerFragmentOrderListBindin
 
     var orders: List<OrderModel> = listOf()
         set(value) {
-            field = value.filter { it.orderType == orderType }
+            field = value.filter { it.orderState == orderState }
             adapter.submitList(field)
         }
 

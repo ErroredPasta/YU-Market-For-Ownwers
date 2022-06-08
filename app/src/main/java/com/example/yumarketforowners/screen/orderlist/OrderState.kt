@@ -1,6 +1,6 @@
 package com.example.yumarketforowners.screen.orderlist
 
-enum class OrderType(
+enum class OrderState(
     val tabString: String
 ) {
     // TODO: 2022.06.05 replace hardcoded string to string resources

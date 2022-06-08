@@ -21,8 +21,8 @@ class OrderListFragment : BaseViewPagerFragment<FragmentOrderListBinding>(),
 
     private var dataLoaded = false
 
-    override val innerFragments = OrderType.values().map(OrderListViewPagerFragment::newInstance)
-    override val tabStrings = OrderType.values().map { it.tabString }
+    override val innerFragments = OrderState.values().map(OrderListViewPagerFragment::newInstance)
+    override val tabStrings = OrderState.values().map { it.tabString }
 
     @Inject
     lateinit var presenter: OrderListContract.Presenter
