@@ -2,6 +2,7 @@ package com.example.yumarketforowners.screen.itemmanage
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import com.example.yumarketforowners.adapter.ModelRecyclerAdapter
 import com.example.yumarketforowners.adapter.listener.itemmanage.ItemManageViewHolderListener
@@ -21,7 +22,22 @@ class ItemListFragment : BaseFragment<ViewPagerFragmentItemListBinding>() {
     private val adapter by lazy {
         ModelRecyclerAdapter<ItemModel>(
             listOf(),
-            object : ItemManageViewHolderListener {}
+            object : ItemManageViewHolderListener {
+                override fun onPlusButtonClick(item: ItemModel) {
+                    // TODO: 2022.06.08 implement stock increment
+                    Toast.makeText(context, "$item plus button clicked", Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onMinusButtonClick(item: ItemModel) {
+                    // TODO: 2022.06.08 implement stock decrement
+                    Toast.makeText(context, "$item minus button clicked", Toast.LENGTH_SHORT).show()
+                }
+
+                override fun onEditItemButtonClick(item: ItemModel) {
+                    // TODO: 2022.06.08 implement start edit item activity
+                    Toast.makeText(context, "$item edit button clicked", Toast.LENGTH_SHORT).show()
+                }
+            }
         )
     }
 
