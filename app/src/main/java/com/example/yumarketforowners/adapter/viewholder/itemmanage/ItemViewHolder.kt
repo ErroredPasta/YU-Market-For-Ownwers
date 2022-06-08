@@ -1,6 +1,7 @@
 package com.example.yumarketforowners.adapter.viewholder.itemmanage
 
 import com.example.yumarketforowners.adapter.listener.AdapterListener
+import com.example.yumarketforowners.adapter.listener.itemmanage.ItemManageViewHolderListener
 import com.example.yumarketforowners.adapter.viewholder.BaseViewHolder
 import com.example.yumarketforowners.data.model.itemmanage.ItemModel
 import com.example.yumarketforowners.databinding.ViewHolderItemBinding
@@ -18,6 +19,8 @@ class ItemViewHolder(
     }
 
     override fun bindListener(listener: AdapterListener) {
-        // TODO: 2022.05.30 bind listener
+        if (listener is ItemManageViewHolderListener) {
+            binding.listener = listener
+        }
     }
 }
