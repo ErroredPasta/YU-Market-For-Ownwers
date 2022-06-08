@@ -9,12 +9,12 @@ class ItemManageRepositoryImpl @Inject constructor() : ItemManageRepository {
         get() = (0..9).map {
             ItemModel(
                 id = it.toLong(),
+                count = it,
                 name = "name $it",
                 price = it,
-                imageUrl = "https://picsum.photos/200",
                 saleRatio = it,
-                available = it % 2 == 0,
-                checkedForStateChange = false
+                imageUrl = "https://picsum.photos/200",
+                available = it % 2 == 0
             )
         }
 
