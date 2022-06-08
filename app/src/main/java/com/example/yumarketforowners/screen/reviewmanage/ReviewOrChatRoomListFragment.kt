@@ -8,14 +8,14 @@ import com.example.yumarketforowners.adapter.listener.reviewmanage.ReviewManageV
 import com.example.yumarketforowners.data.model.BaseModel
 import com.example.yumarketforowners.data.model.reviewmanage.ChatRoomModel
 import com.example.yumarketforowners.data.model.reviewmanage.ReviewModel
-import com.example.yumarketforowners.databinding.ReviewOrChatRoomListFragmentBinding
+import com.example.yumarketforowners.databinding.ViewPagerFragmentReviewOrChatRoomListBinding
 import com.example.yumarketforowners.di.fragment.reviewmanage.ReviewManageComponent
 import com.example.yumarketforowners.di.fragment.reviewmanage.ReviewManageEntryPoint
 import com.example.yumarketforowners.screen.base.BaseFragment
 import dagger.hilt.EntryPoints
 
 class ReviewOrChatRoomListFragment<M : BaseModel> :
-    BaseFragment<ReviewOrChatRoomListFragmentBinding>(),
+    BaseFragment<ViewPagerFragmentReviewOrChatRoomListBinding>(),
     ReviewManageContract.View<M> {
 
     companion object {
@@ -60,7 +60,7 @@ class ReviewOrChatRoomListFragment<M : BaseModel> :
     override fun getViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ) = ReviewOrChatRoomListFragmentBinding.inflate(inflater, container, false)
+    ) = ViewPagerFragmentReviewOrChatRoomListBinding.inflate(inflater, container, false)
 
     fun requestData() {
 //        if (!::data.isInitialized) {

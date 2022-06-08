@@ -5,19 +5,19 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.StringRes
 import com.example.yumarketforowners.data.model.itemmanage.ItemModel
-import com.example.yumarketforowners.databinding.ItemManageFragmentBinding
+import com.example.yumarketforowners.databinding.FragmentItemManageBinding
 import com.example.yumarketforowners.screen.base.BaseViewPagerFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class ItemManageFragment :
-    BaseViewPagerFragment<ItemManageFragmentBinding>(), ItemManageContract.View {
+    BaseViewPagerFragment<FragmentItemManageBinding>(), ItemManageContract.View {
 
     override fun getViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ): ItemManageFragmentBinding = ItemManageFragmentBinding.inflate(
+    ): FragmentItemManageBinding = FragmentItemManageBinding.inflate(
         inflater, container, false
     )
 

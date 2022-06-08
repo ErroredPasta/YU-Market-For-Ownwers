@@ -3,19 +3,19 @@ package com.example.yumarketforowners.screen.orderlist
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.yumarketforowners.data.model.orderlist.OrderModel
-import com.example.yumarketforowners.databinding.OrderListFragmentBinding
+import com.example.yumarketforowners.databinding.FragmentOrderListBinding
 import com.example.yumarketforowners.screen.base.BaseViewPagerFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class OrderListFragment : BaseViewPagerFragment<OrderListFragmentBinding>(),
+class OrderListFragment : BaseViewPagerFragment<FragmentOrderListBinding>(),
     OrderListContract.View {
 
     override fun getViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ): OrderListFragmentBinding = OrderListFragmentBinding.inflate(
+    ): FragmentOrderListBinding = FragmentOrderListBinding.inflate(
         inflater, container, false
     )
 

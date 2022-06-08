@@ -3,11 +3,11 @@ package com.example.yumarketforowners.adapter.viewholder.orderlist
 import com.example.yumarketforowners.adapter.listener.AdapterListener
 import com.example.yumarketforowners.adapter.viewholder.BaseViewHolder
 import com.example.yumarketforowners.data.model.orderlist.OrderModel
-import com.example.yumarketforowners.databinding.OrderViewHolderBinding
+import com.example.yumarketforowners.databinding.ViewHolderOrderBinding
 
 class OrderViewHolder(
-    binding: OrderViewHolderBinding
-) : BaseViewHolder<OrderViewHolderBinding, OrderModel>(binding) {
+    binding: ViewHolderOrderBinding
+) : BaseViewHolder<ViewHolderOrderBinding, OrderModel>(binding) {
     override fun clear() {
         // TODO: 2022.06.05 clear view holder
     }

@@ -12,8 +12,8 @@ enum class CellType(
     val clazz: KClass<*>,
     @LayoutRes val layoutId: Int
 ) {
-    ITEM_CELL(ItemViewHolder::class, R.layout.item_view_holder),
-    REVIEW_CELL(ReviewViewHolder::class, R.layout.review_view_holder),
-    CHAT_ROOM_CELL(ChatRoomViewHolder::class, R.layout.chat_room_view_holder),
-    ORDER_CELL(OrderViewHolder::class, R.layout.order_view_holder),
+    ITEM_CELL(ItemViewHolder::class, R.layout.view_holder_item),
+    REVIEW_CELL(ReviewViewHolder::class, R.layout.view_holder_review),
+    CHAT_ROOM_CELL(ChatRoomViewHolder::class, R.layout.view_holder_chat_room),
+    ORDER_CELL(OrderViewHolder::class, R.layout.view_holder_order),
 }

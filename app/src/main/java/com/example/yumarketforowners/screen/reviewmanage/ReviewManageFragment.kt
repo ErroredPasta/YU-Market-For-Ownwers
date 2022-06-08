@@ -3,20 +3,20 @@ package com.example.yumarketforowners.screen.reviewmanage
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.yumarketforowners.adapter.ViewPagerAdapter
-import com.example.yumarketforowners.databinding.ReviewManageFragmentBinding
+import com.example.yumarketforowners.databinding.FragmentReviewManageBinding
 import com.example.yumarketforowners.di.fragment.reviewmanage.ReviewManageComponent
 import com.example.yumarketforowners.screen.base.BaseViewPagerFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class ReviewManageFragment : BaseViewPagerFragment<ReviewManageFragmentBinding>() {
+class ReviewManageFragment : BaseViewPagerFragment<FragmentReviewManageBinding>() {
 
     override fun getViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ): ReviewManageFragmentBinding =
-        ReviewManageFragmentBinding.inflate(inflater, container, false)
+    ): FragmentReviewManageBinding =
+        FragmentReviewManageBinding.inflate(inflater, container, false)
 
     @Inject
     lateinit var builder: ReviewManageComponent.Builder

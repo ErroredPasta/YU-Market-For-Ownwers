@@ -6,10 +6,10 @@ import androidx.core.os.bundleOf
 import com.example.yumarketforowners.adapter.ModelRecyclerAdapter
 import com.example.yumarketforowners.adapter.listener.itemmanage.ItemManageViewHolderListener
 import com.example.yumarketforowners.data.model.itemmanage.ItemModel
-import com.example.yumarketforowners.databinding.ItemListFragmentBinding
+import com.example.yumarketforowners.databinding.ViewPagerFragmentItemListBinding
 import com.example.yumarketforowners.screen.base.BaseFragment
 
-class ItemListFragment : BaseFragment<ItemListFragmentBinding>() {
+class ItemListFragment : BaseFragment<ViewPagerFragmentItemListBinding>() {
     companion object {
         private const val AVAILABILITY_KEY = "AVAILABILITY_KEY"
 
@@ -44,5 +44,5 @@ class ItemListFragment : BaseFragment<ItemListFragmentBinding>() {
     override fun getViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ) = ItemListFragmentBinding.inflate(inflater, container, false)
+    ) = ViewPagerFragmentItemListBinding.inflate(inflater, container, false)
 }
