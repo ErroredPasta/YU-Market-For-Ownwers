@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Widget.Design.TabLayout" parent="android:Widget" tools:override="true">
+        <item name="tabBackground">@drawable/tab_background</item>
+        <item name="tabTextColor">@color/unfocused_color</item>
+        <item name="tabSelectedTextColor">@color/white</item>
+        <item name="tabMode">auto</item>
+    </style>
+
+</resources>
