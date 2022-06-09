@@ -5,5 +5,9 @@ import com.example.yumarketforowners.data.model.BaseModel
 
 data class ChatRoomModel(
     override val id: Long,
-    val title: String
+    val opponentName: String,
+    val opponentImageUrl: String,
+    val lastMessage: String,
+    val createdTime: Long,
+    var unreadMessageCount: Int
 ) : BaseModel(id, CellType.CHAT_ROOM_CELL)
