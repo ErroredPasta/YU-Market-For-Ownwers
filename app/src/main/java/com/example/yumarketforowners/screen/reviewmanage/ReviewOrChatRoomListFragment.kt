@@ -5,7 +5,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import com.example.yumarketforowners.adapter.ModelRecyclerAdapter
-import com.example.yumarketforowners.adapter.listener.reviewmanage.ReviewManageViewHolderListener
+import com.example.yumarketforowners.adapter.listener.reviewmanage.ChatRoomViewHolderListener
+import com.example.yumarketforowners.adapter.listener.reviewmanage.ReviewViewHolderListener
 import com.example.yumarketforowners.data.model.BaseModel
 import com.example.yumarketforowners.data.model.reviewmanage.ChatRoomModel
 import com.example.yumarketforowners.data.model.reviewmanage.ReviewModel
@@ -50,10 +51,26 @@ class ReviewOrChatRoomListFragment<M : BaseModel> :
 
     private val adapter by lazy {
         ModelRecyclerAdapter<M>(
-            listOf(), object : ReviewManageViewHolderListener {
-                override fun onReplyClicked(review: ReviewModel) {
-                    // TODO: 2022.06.09 handle reply
-                    Toast.makeText(context, "$review reply clicked", Toast.LENGTH_SHORT).show()
+            listOf(),
+            if (fragmentType == ReviewOrChatRoomType.REVIEW) {
+                object : ReviewViewHolderListener {
+                    override fun onReplyClicked(review: ReviewModel) {
+                        // TODO: 2022.06.09 handle reply
+                        Toast.makeText(context, "$review reply clicked", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } else {
+                object : ChatRoomViewHolderListener {
+                    override fun onClicked(chatRoom: ChatRoomModel) {
+                        // TODO: 2022.06.09 start chat room activity
+                        Toast.makeText(context, "$chatRoom clicked", Toast.LENGTH_SHORT).show()
+                    }
+
+                    override fun onRemoveClicked(chatRoom: ChatRoomModel) {
+                        // TODO: 2022.06.09 handle chat room remove
+                        Toast.makeText(context, "$chatRoom remove clicked", Toast.LENGTH_SHORT)
+                            .show()
+                    }
                 }
             }
         )
