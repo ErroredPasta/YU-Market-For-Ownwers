@@ -11,7 +11,7 @@ class ItemManageRepositoryImpl @Inject constructor() : ItemManageRepository {
                 id = it.toLong(),
                 count = it,
                 name = "name $it",
-                price = it,
+                price = it * 10000,
                 saleRatio = it,
                 imageUrl = "https://picsum.photos/200",
                 available = it % 2 == 0
