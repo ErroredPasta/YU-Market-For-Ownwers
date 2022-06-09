@@ -17,6 +17,8 @@
             name="listener"
             type="com.example.yumarketforowners.adapter.listener.orderlist.OrderViewHolderListener" />
 
+        <import type="com.example.yumarketforowners.screen.orderlist.OrderState" />
+
     </data>
 
     <androidx.core.widget.NestedScrollView
@@ -30,13 +32,23 @@
             android:paddingVertical="5dp">
 
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/orderItemRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:adapter="@{adapter}"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <LinearLayout
                 android:id="@+id/orderTitleSet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@id/orderItemRecyclerView">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -70,7 +82,7 @@
                 android:orientation="vertical"
                 android:paddingHorizontal="10dp"
                 app:layout_constraintLeft_toRightOf="@id/orderTitleSet"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@id/orderItemRecyclerView">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -108,6 +120,7 @@
 
             <TextView
                 android:id="@+id/orderRequest"
+                showIf="@{!orderModel.request.equals(``)}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="5dp"
@@ -118,53 +131,54 @@
                 app:layout_constraintTop_toBottomOf="@id/orderTitleSet"
                 tools:text="[요청사항] 15분 후에 방문하겠습니다." />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/orderItemRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:adapter="@{adapter}"
-                android:layout_marginTop="15dp"
-                android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            <Button
+                android:id="@+id/orderAcceptButton"
+                showIf="@{orderModel.orderState == OrderState.PENDING}"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="10dp"
+                android:backgroundTint="@color/interactive_color"
+                android:onClick="@{() -> listener.onAcceptOrderButtonClicked(orderModel)}"
+                android:text="@string/accept_order"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/orderRejectButton"
+                app:layout_constraintTop_toBottomOf="@id/orderRequest" />
+
+            <Button
+                android:id="@+id/orderRejectButton"
+                showIf="@{orderModel.orderState == OrderState.PENDING}"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="10dp"
+                android:backgroundTint="@color/unfocused_color"
+                android:onClick="@{() -> listener.onRejectOrderButtonClicked(orderModel)}"
+                android:text="@string/reject_order"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                app:layout_constraintLeft_toRightOf="@id/orderAcceptButton"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/orderRequest" />
 
             <!-- todo 2022.06.09 set on click -->
             <Button
-                android:id="@+id/orderAcceptButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/accept_button_background"
-                android:onClick="@{() -> listener.onAcceptOrderButtonClicked(orderModel)}"
-                android:text="@string/accept_order"
-                android:textColor="@color/white"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@id/orderRejectButton"
-                app:layout_constraintTop_toBottomOf="@id/orderItemRecyclerView"
-                app:showIfPending="@{orderModel.orderState}" />
-
-            <!-- todo 2022.06.09 set on click -->
-            <Button
-                android:id="@+id/orderRejectButton"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:onClick="@{() -> listener.onRejectOrderButtonClicked(orderModel)}"
-                android:text="@string/reject_order"
-                android:textColor="@color/reject_text_color"
-                app:layout_constraintLeft_toRightOf="@id/orderAcceptButton"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/orderItemRecyclerView"
-                app:showIfPending="@{orderModel.orderState}" />
-
-            <!-- todo 2022.06.09 set on click -->
-            <Button
+                showIf="@{orderModel.orderState == OrderState.ACCEPTED}"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/accept_button_background"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="5dp"
+                android:layout_marginVertical="10dp"
+                android:backgroundTint="@color/interactive_color"
                 android:onClick="@{() -> listener.onDeliveryDoneButtonClicked(orderModel)}"
                 android:text="@string/delivery_done"
-                app:layout_constraintTop_toBottomOf="@id/orderItemRecyclerView"
-                app:showIfAccepted="@{orderModel.orderState}"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:cornerRadius="20dp"
+                app:layout_constraintTop_toBottomOf="@id/orderRequest"
                 tools:visibility="invisible" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
