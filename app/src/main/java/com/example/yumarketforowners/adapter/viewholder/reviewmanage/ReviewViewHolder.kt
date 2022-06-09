@@ -1,7 +1,7 @@
 package com.example.yumarketforowners.adapter.viewholder.reviewmanage
 
 import com.example.yumarketforowners.adapter.listener.AdapterListener
-import com.example.yumarketforowners.adapter.listener.reviewmanage.ReviewManageViewHolderListener
+import com.example.yumarketforowners.adapter.listener.reviewmanage.ReviewViewHolderListener
 import com.example.yumarketforowners.adapter.viewholder.BaseViewHolder
 import com.example.yumarketforowners.data.model.reviewmanage.ReviewModel
 import com.example.yumarketforowners.databinding.ViewHolderReviewBinding
@@ -20,7 +20,7 @@ class ReviewViewHolder(
     }
 
     override fun bindListener(listener: AdapterListener) {
-        if (listener is ReviewManageViewHolderListener) {
+        if (listener is ReviewViewHolderListener) {
             binding.listener = listener
         }
     }
