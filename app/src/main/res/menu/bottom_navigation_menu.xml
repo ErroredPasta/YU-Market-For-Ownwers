@@ -2,19 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/item_manage_menu"
-        android:title="@string/item_manage" />
-
-    <item
         android:id="@+id/order_list_menu"
+        android:icon="@drawable/order_list_icon"
         android:title="@string/order_list" />
 
     <item
         android:id="@+id/review_manage_menu"
-        android:title="@string/review_manage" />
+        android:icon="@drawable/chatting_icon"
+        android:title="@string/chatting_manage" />
+
+    <item
+        android:id="@+id/item_manage_menu"
+        android:icon="@drawable/review_manage_icon"
+        android:title="@string/item_manage" />
 
     <item
         android:id="@+id/market_manage_menu"
+        android:icon="@drawable/market_manage_icon"
         android:title="@string/market_manage" />
 
 </menu>
