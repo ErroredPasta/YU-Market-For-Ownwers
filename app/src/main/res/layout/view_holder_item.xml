@@ -18,19 +18,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="20dp">
 
         <CheckBox
             android:id="@+id/itemCheckBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="@={itemModel.checkedForStateChange}"
-            android:scaleX="1.5"
-            android:scaleY="1.5"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
+            android:id="@+id/itemDescriptionLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -41,103 +41,36 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{itemModel.name}"
+                android:textColor="@color/black"
                 android:textSize="25sp"
                 tools:text="item name" />
 
-            <LinearLayout
+            <!-- todo 2022.06.09 bind item description -->
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{itemModel.available ? `판매중` : `판매중지`}"
-                    android:textColor="@color/red"
-                    android:textSize="12sp"
-                    tools:text="판매중" />
-
-                <!-- todo 2022.06.08 define string resource for price text -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="5dp"
-                    android:text="@{Integer.toString(itemModel.price)}"
-                    android:textSize="12sp"
-                    tools:text="7,000" />
-
-                <!-- todo 2022.06.08 define string resource for sale ratio -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{`(` + Integer.toString(itemModel.saleRatio) + `)%`}"
-                    android:textSize="12sp"
-                    tools:text="(35%)" />
-
-            </LinearLayout>
+                android:text="item description"
+                tools:text="item description" />
 
             <TextView
-                android:id="@+id/itemStockTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="@string/item_stock"
-                android:textSize="11sp" />
+                android:layout_marginTop="20dp"
+                android:text="@{@string/price_format(itemModel.price)}"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                tools:text="₩7,000" />
 
-            <LinearLayout
-                android:id="@+id/itemButtonSet"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingTop="5dp"
-                tools:layout_editor_absoluteY="100dp">
-
-                <Button
-                    style="?materialButtonOutlinedStyle"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp"
-                    android:onClick="@{() -> listener.onMinusButtonClick(itemModel)}"
-                    app:icon="@drawable/ic_baseline_remove_24"
-                    app:iconPadding="0dp"
-                    app:iconSize="10dp" />
-
-                <Button
-                    style="?materialButtonOutlinedStyle"
-                    android:layout_width="40dp"
-                    android:layout_height="25dp"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp"
-                    android:text="@{Integer.toString(itemModel.count)}"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-                    android:textSize="11sp"
-                    tools:text="25" />
-
-                <Button
-                    style="?materialButtonOutlinedStyle"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:insetTop="0dp"
-                    android:insetBottom="0dp"
-                    android:onClick="@{() -> listener.onPlusButtonClick(itemModel)}"
-                    app:icon="@drawable/ic_baseline_add_24"
-                    app:iconPadding="0dp"
-                    app:iconSize="10dp" />
-
-            </LinearLayout>
         </LinearLayout>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:contentDescription="@string/item_edit_button_description"
             android:onClick="@{() -> listener.onEditItemButtonClick(itemModel)}"
-            android:text="@string/edit_item"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:src="@drawable/item_edit_icon"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/itemDescriptionLayout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
