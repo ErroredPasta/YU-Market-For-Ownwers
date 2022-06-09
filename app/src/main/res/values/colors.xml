@@ -11,6 +11,9 @@
     <color name="red">#ff0000</color>
     <color name="request_text_background">#fef0f3</color>
     <color name="request_text_color">#91535d</color>
-    <color name="accept_button_background">#1f8fe6</color>
-    <color name="reject_text_color">#9f9f9f</color>
+    <color name="interactive_color">#d33860</color>
+    <color name="unfocused_color">#9c9c9c</color>
+    <color name="focused_color">#7791ca</color>
+    <color name="idle_color">#f3f3f3</color>
+    <color name="gray_d9">#d9d9d9</color>
 </resources>
