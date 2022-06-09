@@ -17,4 +17,5 @@
     <color name="idle_color">#f3f3f3</color>
     <color name="gray_d9">#d9d9d9</color>
     <color name="unread_count_color">#fb3f41</color>
+    <color name="space_divider_color">#f4f4f4</color>
 </resources>

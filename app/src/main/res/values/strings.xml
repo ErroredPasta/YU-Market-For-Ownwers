@@ -24,4 +24,12 @@
     <string name="long_item_name_example">long order item long order item long order item long order item</string>
     <string name="chat_room_opponent_profile_image_description">채팅방의 상대방 사진</string>
     <string name="chat_room_remove_button_description">채팅방 삭제 버튼</string>
+    <string name="edit_market">마켓 정보 수정</string>
+    <string name="manage_schedule">일정 관리</string>
+    <string name="manage_review">리뷰 관리</string>
+    <string name="market_manage_name_format"><b>%1$s</b> %2$s 사장님</string>
+    <string name="notice">공지사항</string>
+    <string name="notice_icon_description">공지 사항 아이콘</string>
+    <string name="service_center">고객센터</string>
+    <string name="setting">환경설정</string>
 </resources>
