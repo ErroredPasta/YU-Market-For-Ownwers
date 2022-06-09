@@ -2,6 +2,7 @@ package com.example.yumarketforowners.adapter.databinding
 
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.example.yumarketforowners.extension.load
 
@@ -16,5 +17,15 @@ fun showIf(view: View, condition: Boolean) {
         View.VISIBLE
     } else {
         View.GONE
+    }
+}
+
+
+@BindingAdapter("opponentName")
+fun setOpponentName(textView: TextView, name: String) {
+    textView.text = if (name.length > 3) {
+        name.substring(0..3) + "***"
+    } else {
+        name[0] + "***"
     }
 }
