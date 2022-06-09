@@ -22,4 +22,6 @@
     <string name="reply">답글</string>
     <string name="order_item">구매 상품</string>
     <string name="long_item_name_example">long order item long order item long order item long order item</string>
+    <string name="chat_room_opponent_profile_image_description">채팅방의 상대방 사진</string>
+    <string name="chat_room_remove_button_description">채팅방 삭제 버튼</string>
 </resources>
