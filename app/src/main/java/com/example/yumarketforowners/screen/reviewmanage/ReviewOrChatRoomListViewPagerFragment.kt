@@ -16,7 +16,7 @@ import com.example.yumarketforowners.di.fragment.reviewmanage.ReviewManageEntryP
 import com.example.yumarketforowners.screen.base.BaseFragment
 import dagger.hilt.EntryPoints
 
-class ReviewOrChatRoomListFragment<M : BaseModel> :
+class ReviewOrChatRoomListViewPagerFragment<M : BaseModel> :
     BaseFragment<ViewPagerFragmentReviewOrChatRoomListBinding>(),
     ReviewManageContract.View<M> {
 
@@ -24,9 +24,9 @@ class ReviewOrChatRoomListFragment<M : BaseModel> :
         private const val TYPE_KEY = "TYPE_KEY"
 
         fun newInstance(type: ReviewOrChatRoomType) = if (type == ReviewOrChatRoomType.REVIEW) {
-            ReviewOrChatRoomListFragment<ReviewModel>()
+            ReviewOrChatRoomListViewPagerFragment<ReviewModel>()
         } else {
-            ReviewOrChatRoomListFragment<ChatRoomModel>()
+            ReviewOrChatRoomListViewPagerFragment<ChatRoomModel>()
         }.apply {
             arguments = bundleOf(TYPE_KEY to type)
         }

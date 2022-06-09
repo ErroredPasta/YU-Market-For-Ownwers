@@ -10,11 +10,11 @@ import com.example.yumarketforowners.data.model.itemmanage.ItemModel
 import com.example.yumarketforowners.databinding.ViewPagerFragmentItemListBinding
 import com.example.yumarketforowners.screen.base.BaseFragment
 
-class ItemListFragment : BaseFragment<ViewPagerFragmentItemListBinding>() {
+class ItemListViewPagerFragment : BaseFragment<ViewPagerFragmentItemListBinding>() {
     companion object {
         private const val AVAILABILITY_KEY = "AVAILABILITY_KEY"
 
-        fun newInstance(available: Boolean) = ItemListFragment().apply {
+        fun newInstance(available: Boolean) = ItemListViewPagerFragment().apply {
             arguments = bundleOf(AVAILABILITY_KEY to available)
         }
     }

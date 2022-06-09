@@ -22,7 +22,7 @@ class ReviewManageFragment : BaseViewPagerFragment<FragmentReviewManageBinding>(
 
     override val innerFragments by lazy {
         ReviewOrChatRoomType.values().map {
-            ReviewOrChatRoomListFragment.newInstance(it).apply {
+            ReviewOrChatRoomListViewPagerFragment.newInstance(it).apply {
                 component = builder.fragment(this).build()
             }
         }

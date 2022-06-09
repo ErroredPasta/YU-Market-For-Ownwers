@@ -26,7 +26,7 @@ class ItemManageFragment :
     private var dataLoaded = false
 
     override val innerFragments = ItemAvailabilityType.values().map {
-        ItemListFragment.newInstance(it.available)
+        ItemListViewPagerFragment.newInstance(it.available)
     }
 
     override val tabStrings = ItemAvailabilityType.values().map {
