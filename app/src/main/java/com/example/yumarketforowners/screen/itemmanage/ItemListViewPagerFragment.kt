@@ -2,12 +2,14 @@ package com.example.yumarketforowners.screen.itemmanage
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import com.example.yumarketforowners.adapter.ModelRecyclerAdapter
 import com.example.yumarketforowners.adapter.listener.itemmanage.ItemManageViewHolderListener
 import com.example.yumarketforowners.data.model.itemmanage.ItemModel
 import com.example.yumarketforowners.databinding.ViewPagerFragmentItemListBinding
+import com.example.yumarketforowners.extension.addItemDivider
 import com.example.yumarketforowners.screen.base.BaseFragment
 
 class ItemListViewPagerFragment : BaseFragment<ViewPagerFragmentItemListBinding>() {
@@ -42,7 +44,10 @@ class ItemListViewPagerFragment : BaseFragment<ViewPagerFragmentItemListBinding>
         }
 
     override fun initState() = with(binding) {
-        itemListRecyclerView.adapter = adapter
+        itemListRecyclerView.run {
+            this.adapter = this@ItemListViewPagerFragment.adapter
+            addItemDivider(LinearLayout.VERTICAL)
+        }
 
         adapter.submitList(items)
     }

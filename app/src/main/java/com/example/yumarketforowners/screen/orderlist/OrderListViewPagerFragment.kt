@@ -2,12 +2,14 @@ package com.example.yumarketforowners.screen.orderlist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import com.example.yumarketforowners.adapter.ModelRecyclerAdapter
 import com.example.yumarketforowners.adapter.listener.orderlist.OrderViewHolderListener
 import com.example.yumarketforowners.data.model.orderlist.OrderModel
 import com.example.yumarketforowners.databinding.ViewPagerFragmentOrderListBinding
+import com.example.yumarketforowners.extension.addItemDivider
 import com.example.yumarketforowners.screen.base.BaseFragment
 
 class OrderListViewPagerFragment : BaseFragment<ViewPagerFragmentOrderListBinding>() {
@@ -38,12 +40,14 @@ class OrderListViewPagerFragment : BaseFragment<ViewPagerFragmentOrderListBindin
 
                 override fun onAcceptOrderButtonClicked(order: OrderModel) {
                     // TODO: 2022.06.09 handle accept order
-                    Toast.makeText(context, "$order accept button clicked", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "$order accept button clicked", Toast.LENGTH_SHORT)
+                        .show()
                 }
 
                 override fun onRejectOrderButtonClicked(order: OrderModel) {
                     // TODO: 2022.06.09 handle reject order
-                    Toast.makeText(context, "$order reject button clicked", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "$order reject button clicked", Toast.LENGTH_SHORT)
+                        .show()
                 }
 
                 override fun onDeliveryDoneButtonClicked(order: OrderModel) {
@@ -61,7 +65,10 @@ class OrderListViewPagerFragment : BaseFragment<ViewPagerFragmentOrderListBindin
         }
 
     override fun initState() {
-        binding.orderListRecyclerView.adapter = adapter
+        binding.orderListRecyclerView.run {
+            this.adapter = this@OrderListViewPagerFragment.adapter
+            addItemDivider(LinearLayout.VERTICAL)
+        }
 
         adapter.submitList(orders)
     }

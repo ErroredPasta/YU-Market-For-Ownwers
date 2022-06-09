@@ -2,6 +2,7 @@ package com.example.yumarketforowners.screen.reviewmanage
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import com.example.yumarketforowners.adapter.ModelRecyclerAdapter
@@ -13,6 +14,7 @@ import com.example.yumarketforowners.data.model.reviewmanage.ReviewModel
 import com.example.yumarketforowners.databinding.ViewPagerFragmentReviewOrChatRoomListBinding
 import com.example.yumarketforowners.di.fragment.reviewmanage.ReviewManageComponent
 import com.example.yumarketforowners.di.fragment.reviewmanage.ReviewManageEntryPoint
+import com.example.yumarketforowners.extension.addItemDivider
 import com.example.yumarketforowners.screen.base.BaseFragment
 import dagger.hilt.EntryPoints
 
@@ -77,7 +79,10 @@ class ReviewOrChatRoomListViewPagerFragment<M : BaseModel> :
     }
 
     override fun initState() {
-        binding.reviewOrChatRoomListRecyclerView.adapter = adapter
+        binding.reviewOrChatRoomListRecyclerView.run {
+            this.adapter = this@ReviewOrChatRoomListViewPagerFragment.adapter
+            addItemDivider(LinearLayout.VERTICAL)
+        }
     }
 
     override fun getViewBinding(
