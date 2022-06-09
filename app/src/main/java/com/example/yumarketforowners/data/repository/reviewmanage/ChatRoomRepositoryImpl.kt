@@ -9,7 +9,11 @@ class ChatRoomRepositoryImpl @Inject constructor() : ReviewOrChatRoomRepository<
     private val testList get() = (0..9).map {
         ChatRoomModel(
             id = it.toLong(),
-            title = "chat room $it"
+            opponentName = "name $it",
+            opponentImageUrl = "https://picsum.photos/200",
+            lastMessage = "last message $it",
+            createdTime = System.currentTimeMillis(),
+            unreadMessageCount = it
         )
     }
 
