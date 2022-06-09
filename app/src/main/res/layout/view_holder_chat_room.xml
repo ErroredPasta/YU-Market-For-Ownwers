@@ -9,21 +9,89 @@
             name="chatRoomModel"
             type="com.example.yumarketforowners.data.model.reviewmanage.ChatRoomModel" />
 
+        <variable
+            name="listener"
+            type="com.example.yumarketforowners.adapter.listener.reviewmanage.ChatRoomViewHolderListener" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> listener.onClicked(chatRoomModel)}"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/chatRoomOpponentImage"
+            cornerRadius="@{50f}"
+            imageUrl="@{chatRoomModel.opponentImageUrl}"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/chat_room_opponent_profile_image_description"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/review_manage_icon" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/chatRoomOpponentNameText"
+            opponentName="@{chatRoomModel.opponentName}"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{chatRoomModel.title}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginHorizontal="10dp"
+            app:layout_constraintLeft_toRightOf="@id/chatRoomOpponentImage"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="item name" />
+            tools:text="opponent name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:text="@{chatRoomModel.lastMessage}"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/chatRoomCreatedTimeText"
+            app:layout_constraintLeft_toRightOf="@id/chatRoomOpponentImage"
+            app:layout_constraintTop_toBottomOf="@id/chatRoomOpponentNameText"
+            tools:text="last message" />
+
+        <TextView
+            android:id="@+id/chatRoomCreatedTimeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:text="@{Long.toString(chatRoomModel.createdTime)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/chatRoomOpponentImage"
+            tools:text="2022-01-02 12:34:56" />
+
+        <!-- todo 2022.06.09 set on click -->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/chat_room_remove_button_description"
+            android:onClick="@{() -> listener.onRemoveClicked(chatRoomModel)}"
+            android:src="@drawable/ic_baseline_clear_24"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.chip.Chip
+            showIf="@{chatRoomModel.unreadMessageCount > 0}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{Integer.toString(chatRoomModel.unreadMessageCount)}"
+            android:textColor="@color/white"
+            android:textSize="11sp"
+            app:chipBackgroundColor="@color/unread_count_color"
+            app:chipEndPadding="2dp"
+            app:chipMinHeight="20dp"
+            app:chipMinTouchTargetSize="0dp"
+            app:chipStartPadding="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:textEndPadding="4dp"
+            app:textStartPadding="6dp"
+            tools:text="5" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
