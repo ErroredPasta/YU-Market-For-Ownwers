@@ -1,20 +1,227 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+
+        <variable
+            name="userModel"
+            type="com.example.yumarketforowners.data.model.marketmanage.UserModel" />
+
+        <variable
+            name="listener"
+            type="com.example.yumarketforowners.screen.marketmanage.MarketManageListener" />
+
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="market_manage_fragment"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:onClick="@{() -> listener.onEditProfileClicked(userModel)}"
+            android:padding="10dp">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/marketManageProfileImage"
+                imageUrl="@{userModel.imageUrl ?? ``}"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:src="@drawable/market_manage_icon"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:text="@{@string/market_manage_name_format(userModel.storeName, userModel.name)}"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/marketManageProfileImage"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="market name user name" />
+
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/space_divider_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{() -> listener.onEditMarketClicked()}"
+                android:scaleX="0.7"
+                android:scaleY="0.7"
+                android:text="@string/edit_market"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:drawableTopCompat="@drawable/store_icon" />
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="75dp"
+                android:background="@color/space_divider_color" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{() -> listener.onManageScheduleClicked()}"
+                android:scaleX="0.7"
+                android:scaleY="0.7"
+                android:text="@string/manage_schedule"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:drawableTopCompat="@drawable/calendar_icon" />
+
+            <View
+                android:layout_width="3dp"
+                android:layout_height="75dp"
+                android:background="@color/space_divider_color" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="@{() -> listener.onManageReviewClicked()}"
+                android:scaleX="0.7"
+                android:scaleY="0.7"
+                android:text="@string/manage_review"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:drawableTopCompat="@drawable/review_manage_icon" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/space_divider_color" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:onClick="@{() -> listener.onNoticeClicked()}"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="15dp"
+                    android:contentDescription="@string/notice_icon_description"
+                    android:src="@drawable/notice_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:text="@string/notice"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/space_divider_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:onClick="@{() -> listener.onServiceCenterClicked()}"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="15dp"
+                    android:contentDescription="@string/notice_icon_description"
+                    android:src="@drawable/phone_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:text="@string/service_center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/space_divider_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:onClick="@{() -> listener.onSettingClicked()}"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="15dp"
+                    android:contentDescription="@string/notice_icon_description"
+                    android:src="@drawable/setting_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center_vertical"
+                    android:text="@string/setting"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/space_divider_color" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
 </layout>
