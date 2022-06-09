@@ -23,16 +23,6 @@ class ItemListFragment : BaseFragment<ViewPagerFragmentItemListBinding>() {
         ModelRecyclerAdapter<ItemModel>(
             listOf(),
             object : ItemManageViewHolderListener {
-                override fun onPlusButtonClick(item: ItemModel) {
-                    // TODO: 2022.06.08 implement stock increment
-                    Toast.makeText(context, "$item plus button clicked", Toast.LENGTH_SHORT).show()
-                }
-
-                override fun onMinusButtonClick(item: ItemModel) {
-                    // TODO: 2022.06.08 implement stock decrement
-                    Toast.makeText(context, "$item minus button clicked", Toast.LENGTH_SHORT).show()
-                }
-
                 override fun onEditItemButtonClick(item: ItemModel) {
                     // TODO: 2022.06.08 implement start edit item activity
                     Toast.makeText(context, "$item edit button clicked", Toast.LENGTH_SHORT).show()
