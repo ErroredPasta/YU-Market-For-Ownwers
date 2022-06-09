@@ -2,6 +2,7 @@ package com.example.yumarketforowners.screen.reviewmanage
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import com.example.yumarketforowners.adapter.ModelRecyclerAdapter
 import com.example.yumarketforowners.adapter.listener.reviewmanage.ReviewManageViewHolderListener
@@ -49,7 +50,12 @@ class ReviewOrChatRoomListFragment<M : BaseModel> :
 
     private val adapter by lazy {
         ModelRecyclerAdapter<M>(
-            listOf(), object : ReviewManageViewHolderListener {}
+            listOf(), object : ReviewManageViewHolderListener {
+                override fun onReplyClicked(review: ReviewModel) {
+                    // TODO: 2022.06.09 handle reply
+                    Toast.makeText(context, "$review reply clicked", Toast.LENGTH_SHORT).show()
+                }
+            }
         )
     }
 
