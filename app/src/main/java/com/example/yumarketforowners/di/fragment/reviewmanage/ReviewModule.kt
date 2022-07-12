@@ -12,36 +12,25 @@ import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.components.FragmentComponent
 import dagger.hilt.android.scopes.FragmentScoped
 
 @Module
-@InstallIn(ReviewManageComponent::class)
-abstract class ReviewManageModule {
+@InstallIn(FragmentComponent::class)
+abstract class ReviewModule {
     @Binds
     abstract fun bindReviewRepository(repository: ReviewRepositoryImpl):
             ReviewOrChatRoomRepository<ReviewModel>
-
-    @Binds
-    abstract fun bindChatRoomRepository(repository: ChatRoomRepositoryImpl):
-            ReviewOrChatRoomRepository<ChatRoomModel>
 
     @Binds
     @FragmentScoped
     abstract fun bindReviewPresenter(presenter: ReviewManagePresenter<ReviewModel>):
             ReviewManageContract.Presenter<ReviewModel>
 
-    @Binds
-    @FragmentScoped
-    abstract fun bindChatRoomPresenter(presenter: ReviewManagePresenter<ChatRoomModel>):
-            ReviewManageContract.Presenter<ChatRoomModel>
-
-
-    @Suppress("UNCHECKED_CAST")
     companion object {
+        @Suppress("UNCHECKED_CAST")
         @Provides
-        fun provideReviewView(fragment: Fragment) = fragment as ReviewManageContract.View<ReviewModel>
-
-        @Provides
-        fun provideChatRoomView(fragment: Fragment) = fragment as ReviewManageContract.View<ChatRoomModel>
+        fun provideReviewView(fragment: Fragment) =
+            fragment as ReviewManageContract.View<ReviewModel>
     }
 }
