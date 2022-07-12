@@ -3,13 +3,11 @@ package com.example.yumarketforowners.screen.reviewmanage
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.example.yumarketforowners.databinding.FragmentReviewManageBinding
-import com.example.yumarketforowners.di.fragment.reviewmanage.ReviewManageComponent
 import com.example.yumarketforowners.screen.base.BaseViewPagerFragment
-import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
+import com.example.yumarketforowners.screen.reviewmanage.innerfragment.BaseReviewInnerFragment
 
-@AndroidEntryPoint
-class ReviewManageFragment : BaseViewPagerFragment<FragmentReviewManageBinding>() {
+class ReviewManageFragment :
+    BaseViewPagerFragment<FragmentReviewManageBinding, BaseReviewInnerFragment<*>>() {
 
     override fun getViewBinding(
         inflater: LayoutInflater,
@@ -17,16 +15,6 @@ class ReviewManageFragment : BaseViewPagerFragment<FragmentReviewManageBinding>(
     ): FragmentReviewManageBinding =
         FragmentReviewManageBinding.inflate(inflater, container, false)
 
-    @Inject
-    lateinit var builder: ReviewManageComponent.Builder
-
-    override val innerFragments by lazy {
-        ReviewOrChatRoomType.values().map {
-            ReviewOrChatRoomListViewPagerFragment.newInstance(it).apply {
-                component = builder.fragment(this).build()
-            }
-        }
-    }
 
     override val tabStrings by lazy {
         ReviewOrChatRoomType.values().map {
@@ -37,15 +25,10 @@ class ReviewManageFragment : BaseViewPagerFragment<FragmentReviewManageBinding>(
     override fun initState() {
         initViewPagerAndTabLayout(
             binding.reviewManageViewPager,
-            binding.reviewManageTabLayout
+            binding.reviewManageTabLayout,
+            ReviewOrChatRoomType.values().map {
+                BaseReviewInnerFragment.newInstance(it)
+            }
         )
-
-        requestData()
-    }
-
-    private fun requestData() {
-        for (innerFragment in innerFragments) {
-            innerFragment.requestData()
-        }
     }
 }
