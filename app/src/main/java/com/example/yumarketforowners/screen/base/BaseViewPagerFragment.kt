@@ -6,24 +6,38 @@ import com.example.yumarketforowners.adapter.ViewPagerAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
-abstract class BaseViewPagerFragment<VB : ViewBinding> : BaseFragment<VB>() {
+abstract class BaseViewPagerFragment<VB : ViewBinding, IF : BaseFragment<*>> : BaseFragment<VB>() {
 
-    protected abstract val innerFragments: List<BaseFragment<*>>
+    private var _innerFragments: List<IF>? = null
+    protected val innerFragments get() = _innerFragments!!
+
     protected abstract val tabStrings: List<String>
-    protected lateinit var viewPagerAdapter: ViewPagerAdapter
 
-    protected fun initViewPagerAndTabLayout(viewPager: ViewPager2, tabLayout: TabLayout) {
-        if (!::viewPagerAdapter.isInitialized) {
-            viewPagerAdapter = ViewPagerAdapter(this, innerFragments)
+    private var _viewPagerAdapter: ViewPagerAdapter? = null
+    protected val viewPagerAdapter get() = _viewPagerAdapter!!
 
-            viewPager.run {
-                this.adapter = this@BaseViewPagerFragment.viewPagerAdapter
-                offscreenPageLimit = innerFragments.size
-            }
+    protected fun initViewPagerAndTabLayout(
+        viewPager: ViewPager2,
+        tabLayout: TabLayout,
+        innerFragments: List<IF>
+    ) {
+        _viewPagerAdapter = ViewPagerAdapter(this, innerFragments)
 
-            TabLayoutMediator(tabLayout, viewPager) { tab, position ->
-                tab.text = tabStrings[position]
-            }.attach()
+        viewPager.run {
+            this.adapter = this@BaseViewPagerFragment.viewPagerAdapter
+            offscreenPageLimit = innerFragments.size
         }
+
+        this._innerFragments = innerFragments
+
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.text = tabStrings[position]
+        }.attach()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _innerFragments = null
+        _viewPagerAdapter = null
     }
 }
