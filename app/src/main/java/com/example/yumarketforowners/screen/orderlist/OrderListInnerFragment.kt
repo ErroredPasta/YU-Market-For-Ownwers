@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.annotation.StringRes
 import androidx.core.os.bundleOf
 import com.example.yumarketforowners.adapter.ModelRecyclerAdapter
 import com.example.yumarketforowners.adapter.listener.orderlist.OrderViewHolderListener
@@ -11,12 +12,17 @@ import com.example.yumarketforowners.data.model.orderlist.OrderModel
 import com.example.yumarketforowners.databinding.ViewPagerFragmentOrderListBinding
 import com.example.yumarketforowners.extension.addItemDivider
 import com.example.yumarketforowners.screen.base.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-class OrderListViewPagerFragment : BaseFragment<ViewPagerFragmentOrderListBinding>() {
+@AndroidEntryPoint
+class OrderListInnerFragment :
+    BaseFragment<ViewPagerFragmentOrderListBinding>(),
+    OrderListContract.View {
     companion object {
         private const val ORDER_STATE_KEY = "ORDER_STATE_KEY"
 
-        fun newInstance(orderState: OrderState) = OrderListViewPagerFragment().apply {
+        fun newInstance(orderState: OrderState) = OrderListInnerFragment().apply {
             arguments = bundleOf(ORDER_STATE_KEY to orderState)
         }
     }
@@ -29,6 +35,9 @@ class OrderListViewPagerFragment : BaseFragment<ViewPagerFragmentOrderListBindin
     private val orderState by lazy {
         requireArguments()[ORDER_STATE_KEY] as OrderState
     }
+
+    @Inject
+    lateinit var presenter: OrderListContract.Presenter
 
     private val adapter by lazy {
         ModelRecyclerAdapter<OrderModel>(
@@ -58,7 +67,7 @@ class OrderListViewPagerFragment : BaseFragment<ViewPagerFragmentOrderListBindin
         )
     }
 
-    var orders: List<OrderModel> = listOf()
+    private var orders: List<OrderModel> = listOf()
         set(value) {
             field = value.filter { it.orderState == orderState }
             adapter.submitList(field)
@@ -66,10 +75,27 @@ class OrderListViewPagerFragment : BaseFragment<ViewPagerFragmentOrderListBindin
 
     override fun initState() {
         binding.orderListRecyclerView.run {
-            this.adapter = this@OrderListViewPagerFragment.adapter
+            this.adapter = this@OrderListInnerFragment.adapter
             addItemDivider(LinearLayout.VERTICAL)
         }
 
-        adapter.submitList(orders)
+        requestData()
+    }
+
+    private fun requestData() {
+        // TODO: 2022.07.10 request data by market id
+        presenter.requestData(0)
+    }
+
+    override fun loading(show: Boolean) {
+        // TODO: 2022.07.10 implement loading
+    }
+
+    override fun onRequestDataSuccess(data: List<OrderModel>) {
+        this.orders = data
+    }
+
+    override fun onRequestDataError(@StringRes errorMessage: Int) {
+        Toast.makeText(context, getText(errorMessage), Toast.LENGTH_SHORT).show()
     }
 }

@@ -11,15 +11,23 @@ import com.example.yumarketforowners.data.model.itemmanage.ItemModel
 import com.example.yumarketforowners.databinding.ViewPagerFragmentItemListBinding
 import com.example.yumarketforowners.extension.addItemDivider
 import com.example.yumarketforowners.screen.base.BaseFragment
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-class ItemListViewPagerFragment : BaseFragment<ViewPagerFragmentItemListBinding>() {
+@AndroidEntryPoint
+class ItemListInnerFragment :
+    BaseFragment<ViewPagerFragmentItemListBinding>(),
+    ItemManageContract.View {
     companion object {
         private const val AVAILABILITY_KEY = "AVAILABILITY_KEY"
 
-        fun newInstance(available: Boolean) = ItemListViewPagerFragment().apply {
+        fun newInstance(available: Boolean) = ItemListInnerFragment().apply {
             arguments = bundleOf(AVAILABILITY_KEY to available)
         }
     }
+
+    @Inject
+    lateinit var presenter: ItemManageContract.Presenter
 
     private val adapter by lazy {
         ModelRecyclerAdapter<ItemModel>(
@@ -37,7 +45,7 @@ class ItemListViewPagerFragment : BaseFragment<ViewPagerFragmentItemListBinding>
         requireArguments()[AVAILABILITY_KEY] as Boolean
     }
 
-    var items = listOf<ItemModel>()
+    private var items = listOf<ItemModel>()
         set(value) {
             field = value.filter { it.available == available }
             adapter.submitList(field)
@@ -45,15 +53,31 @@ class ItemListViewPagerFragment : BaseFragment<ViewPagerFragmentItemListBinding>
 
     override fun initState() = with(binding) {
         itemListRecyclerView.run {
-            this.adapter = this@ItemListViewPagerFragment.adapter
+            this.adapter = this@ItemListInnerFragment.adapter
             addItemDivider(LinearLayout.VERTICAL)
         }
 
-        adapter.submitList(items)
+        requestData()
+    }
+
+    fun requestData() {
+        presenter.requestData(0)
     }
 
     override fun getViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
     ) = ViewPagerFragmentItemListBinding.inflate(inflater, container, false)
+
+    override fun loading(show: Boolean) {
+        // TODO: 2022.07.10 implement loading
+    }
+
+    override fun onRequestDataSuccess(items: List<ItemModel>) {
+        this.items = items
+    }
+
+    override fun onRequestDataError(errorMessage: Int) {
+        Toast.makeText(context, getText(errorMessage), Toast.LENGTH_SHORT).show()
+    }
 }
