@@ -8,7 +8,7 @@ import androidx.core.os.bundleOf
 import com.example.yumarketforowners.adapter.ModelRecyclerAdapter
 import com.example.yumarketforowners.adapter.listener.itemmanage.ItemManageViewHolderListener
 import com.example.yumarketforowners.data.model.itemmanage.ItemModel
-import com.example.yumarketforowners.databinding.ViewPagerFragmentItemListBinding
+import com.example.yumarketforowners.databinding.InnerFragmentItemListBinding
 import com.example.yumarketforowners.extension.addItemDivider
 import com.example.yumarketforowners.screen.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class ItemListInnerFragment :
-    BaseFragment<ViewPagerFragmentItemListBinding>(),
+    BaseFragment<InnerFragmentItemListBinding>(),
     ItemManageContract.View {
     companion object {
         private const val AVAILABILITY_KEY = "AVAILABILITY_KEY"
@@ -67,7 +67,7 @@ class ItemListInnerFragment :
     override fun getViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ) = ViewPagerFragmentItemListBinding.inflate(inflater, container, false)
+    ) = InnerFragmentItemListBinding.inflate(inflater, container, false)
 
     override fun loading(show: Boolean) {
         // TODO: 2022.07.10 implement loading

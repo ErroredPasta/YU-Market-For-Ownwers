@@ -9,7 +9,7 @@ import androidx.core.os.bundleOf
 import com.example.yumarketforowners.adapter.ModelRecyclerAdapter
 import com.example.yumarketforowners.adapter.listener.orderlist.OrderViewHolderListener
 import com.example.yumarketforowners.data.model.orderlist.OrderModel
-import com.example.yumarketforowners.databinding.ViewPagerFragmentOrderListBinding
+import com.example.yumarketforowners.databinding.InnerFragmentOrderListBinding
 import com.example.yumarketforowners.extension.addItemDivider
 import com.example.yumarketforowners.screen.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,7 +17,7 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class OrderListInnerFragment :
-    BaseFragment<ViewPagerFragmentOrderListBinding>(),
+    BaseFragment<InnerFragmentOrderListBinding>(),
     OrderListContract.View {
     companion object {
         private const val ORDER_STATE_KEY = "ORDER_STATE_KEY"
@@ -30,7 +30,7 @@ class OrderListInnerFragment :
     override fun getViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ) = ViewPagerFragmentOrderListBinding.inflate(inflater, container, false)
+    ) = InnerFragmentOrderListBinding.inflate(inflater, container, false)
 
     private val orderState by lazy {
         requireArguments()[ORDER_STATE_KEY] as OrderState

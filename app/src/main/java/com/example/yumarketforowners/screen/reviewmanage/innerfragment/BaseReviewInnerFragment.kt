@@ -7,14 +7,14 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import com.example.yumarketforowners.adapter.ModelRecyclerAdapter
 import com.example.yumarketforowners.data.model.BaseModel
-import com.example.yumarketforowners.databinding.ViewPagerFragmentReviewOrChatRoomListBinding
+import com.example.yumarketforowners.databinding.InnerFragmentReviewOrChatRoomListBinding
 import com.example.yumarketforowners.extension.addItemDivider
 import com.example.yumarketforowners.screen.base.BaseFragment
 import com.example.yumarketforowners.screen.reviewmanage.ReviewManageContract
 import com.example.yumarketforowners.screen.reviewmanage.ReviewOrChatRoomType
 
 abstract class BaseReviewInnerFragment<M : BaseModel> :
-    BaseFragment<ViewPagerFragmentReviewOrChatRoomListBinding>(),
+    BaseFragment<InnerFragmentReviewOrChatRoomListBinding>(),
     ReviewManageContract.View<M> {
 
     companion object {
@@ -39,7 +39,7 @@ abstract class BaseReviewInnerFragment<M : BaseModel> :
     override fun getViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ) = ViewPagerFragmentReviewOrChatRoomListBinding.inflate(inflater, container, false)
+    ) = InnerFragmentReviewOrChatRoomListBinding.inflate(inflater, container, false)
 
     abstract fun requestData()
 
