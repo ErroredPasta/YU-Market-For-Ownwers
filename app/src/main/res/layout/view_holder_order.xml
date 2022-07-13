@@ -10,10 +10,6 @@
             type="com.example.yumarketforowners.data.model.orderlist.OrderModel" />
 
         <variable
-            name="adapter"
-            type="com.example.yumarketforowners.adapter.ModelRecyclerAdapter" />
-
-        <variable
             name="listener"
             type="com.example.yumarketforowners.adapter.listener.orderlist.OrderViewHolderListener" />
 
@@ -31,13 +27,11 @@
             android:paddingHorizontal="10dp"
             android:paddingVertical="5dp">
 
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/orderItemRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:adapter="@{adapter}"
                 android:orientation="vertical"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintTop_toTopOf="parent" />
