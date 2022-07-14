@@ -67,12 +67,6 @@ class OrderListInnerFragment :
         )
     }
 
-    private var orders: List<OrderModel> = listOf()
-        set(value) {
-            field = value.filter { it.orderState == orderState }
-            adapter.submitList(field)
-        }
-
     override fun initState() {
         binding.orderListRecyclerView.run {
             this.adapter = this@OrderListInnerFragment.adapter
@@ -92,7 +86,7 @@ class OrderListInnerFragment :
     }
 
     override fun onRequestDataSuccess(data: List<OrderModel>) {
-        this.orders = data
+        adapter.submitList(data.filter { it.orderState == orderState })
     }
 
     override fun onRequestDataError(@StringRes errorMessage: Int) {

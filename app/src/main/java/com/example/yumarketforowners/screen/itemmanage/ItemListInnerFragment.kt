@@ -45,12 +45,6 @@ class ItemListInnerFragment :
         requireArguments()[AVAILABILITY_KEY] as Boolean
     }
 
-    private var items = listOf<ItemModel>()
-        set(value) {
-            field = value.filter { it.available == available }
-            adapter.submitList(field)
-        }
-
     override fun initState() = with(binding) {
         itemListRecyclerView.run {
             this.adapter = this@ItemListInnerFragment.adapter
@@ -74,7 +68,7 @@ class ItemListInnerFragment :
     }
 
     override fun onRequestDataSuccess(items: List<ItemModel>) {
-        this.items = items
+        adapter.submitList(items.filter { it.available == available })
     }
 
     override fun onRequestDataError(errorMessage: Int) {
