@@ -1,6 +1,6 @@
 package com.example.yumarketforowners.data.repository.orderlist
 
-import com.example.yumarketforowners.adapter.viewholder.CellType
+import com.example.yumarketforowners.screen.recyclerview.viewholder.CellType
 import com.example.yumarketforowners.data.model.itemmanage.ItemModel
 import com.example.yumarketforowners.data.model.orderlist.DeliveryType
 import com.example.yumarketforowners.data.model.orderlist.OrderModel

@@ -1,6 +1,6 @@
 package com.example.yumarketforowners.data.model.itemmanage
 
-import com.example.yumarketforowners.adapter.viewholder.CellType
+import com.example.yumarketforowners.screen.recyclerview.viewholder.CellType
 import com.example.yumarketforowners.data.model.BaseModel
 
 data class ItemModel(

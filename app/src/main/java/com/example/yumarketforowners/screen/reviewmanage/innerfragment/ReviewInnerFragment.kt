@@ -2,7 +2,7 @@ package com.example.yumarketforowners.screen.reviewmanage.innerfragment
 
 import android.widget.Toast
 import com.example.yumarketforowners.adapter.ModelRecyclerAdapter
-import com.example.yumarketforowners.adapter.listener.reviewmanage.ReviewViewHolderListener
+import com.example.yumarketforowners.screen.recyclerview.listener.reviewmanage.ReviewViewHolderListener
 import com.example.yumarketforowners.data.model.reviewmanage.ReviewModel
 import com.example.yumarketforowners.screen.reviewmanage.ReviewManageContract
 import dagger.hilt.android.AndroidEntryPoint

@@ -1,8 +1,8 @@
-package com.example.yumarketforowners.adapter.viewholder.reviewmanage
+package com.example.yumarketforowners.screen.recyclerview.viewholder.reviewmanage
 
-import com.example.yumarketforowners.adapter.listener.AdapterListener
-import com.example.yumarketforowners.adapter.listener.reviewmanage.ReviewViewHolderListener
-import com.example.yumarketforowners.adapter.viewholder.BaseViewHolder
+import com.example.yumarketforowners.screen.recyclerview.listener.AdapterListener
+import com.example.yumarketforowners.screen.recyclerview.listener.reviewmanage.ReviewViewHolderListener
+import com.example.yumarketforowners.screen.recyclerview.viewholder.BaseViewHolder
 import com.example.yumarketforowners.data.model.reviewmanage.ReviewModel
 import com.example.yumarketforowners.databinding.ViewHolderReviewBinding
 import com.example.yumarketforowners.extension.clear

@@ -11,7 +11,7 @@
 
         <variable
             name="listener"
-            type="com.example.yumarketforowners.adapter.listener.orderlist.OrderViewHolderListener" />
+            type="com.example.yumarketforowners.screen.recyclerview.listener.orderlist.OrderViewHolderListener" />
 
         <import type="com.example.yumarketforowners.screen.orderlist.OrderState" />
 

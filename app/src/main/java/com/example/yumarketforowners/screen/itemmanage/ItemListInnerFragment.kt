@@ -6,7 +6,7 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import com.example.yumarketforowners.adapter.ModelRecyclerAdapter
-import com.example.yumarketforowners.adapter.listener.itemmanage.ItemManageViewHolderListener
+import com.example.yumarketforowners.screen.recyclerview.listener.itemmanage.ItemManageViewHolderListener
 import com.example.yumarketforowners.data.model.itemmanage.ItemModel
 import com.example.yumarketforowners.databinding.InnerFragmentItemListBinding
 import com.example.yumarketforowners.extension.addItemDivider

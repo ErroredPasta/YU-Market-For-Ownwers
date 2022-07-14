@@ -1,6 +1,6 @@
-package com.example.yumarketforowners.adapter.listener.itemmanage
+package com.example.yumarketforowners.screen.recyclerview.listener.itemmanage
 
-import com.example.yumarketforowners.adapter.listener.AdapterListener
+import com.example.yumarketforowners.screen.recyclerview.listener.AdapterListener
 import com.example.yumarketforowners.data.model.itemmanage.ItemModel
 
 interface ItemManageViewHolderListener : AdapterListener {

@@ -1,12 +1,12 @@
-package com.example.yumarketforowners.adapter.viewholder
+package com.example.yumarketforowners.screen.recyclerview.viewholder
 
 import androidx.annotation.LayoutRes
 import com.example.yumarketforowners.R
-import com.example.yumarketforowners.adapter.viewholder.itemmanage.ItemViewHolder
-import com.example.yumarketforowners.adapter.viewholder.orderlist.OrderItemViewHolder
-import com.example.yumarketforowners.adapter.viewholder.orderlist.OrderViewHolder
-import com.example.yumarketforowners.adapter.viewholder.reviewmanage.ChatRoomViewHolder
-import com.example.yumarketforowners.adapter.viewholder.reviewmanage.ReviewViewHolder
+import com.example.yumarketforowners.screen.recyclerview.viewholder.itemmanage.ItemViewHolder
+import com.example.yumarketforowners.screen.recyclerview.viewholder.orderlist.OrderItemViewHolder
+import com.example.yumarketforowners.screen.recyclerview.viewholder.orderlist.OrderViewHolder
+import com.example.yumarketforowners.screen.recyclerview.viewholder.reviewmanage.ChatRoomViewHolder
+import com.example.yumarketforowners.screen.recyclerview.viewholder.reviewmanage.ReviewViewHolder
 import kotlin.reflect.KClass
 
 enum class CellType(

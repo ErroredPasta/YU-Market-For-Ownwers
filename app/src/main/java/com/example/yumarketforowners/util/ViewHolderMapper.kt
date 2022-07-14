@@ -3,8 +3,8 @@ package com.example.yumarketforowners.util
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import com.example.yumarketforowners.adapter.viewholder.BaseViewHolder
-import com.example.yumarketforowners.adapter.viewholder.CellType
+import com.example.yumarketforowners.screen.recyclerview.viewholder.BaseViewHolder
+import com.example.yumarketforowners.screen.recyclerview.viewholder.CellType
 import com.example.yumarketforowners.data.model.BaseModel
 import kotlin.reflect.full.primaryConstructor
 

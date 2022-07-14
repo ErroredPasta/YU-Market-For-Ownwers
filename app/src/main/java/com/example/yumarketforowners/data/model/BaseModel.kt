@@ -2,7 +2,7 @@ package com.example.yumarketforowners.data.model
 
 import android.annotation.SuppressLint
 import androidx.recyclerview.widget.DiffUtil
-import com.example.yumarketforowners.adapter.viewholder.CellType
+import com.example.yumarketforowners.screen.recyclerview.viewholder.CellType
 
 abstract class BaseModel(
     open val id: Long,

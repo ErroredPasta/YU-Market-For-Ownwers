@@ -7,11 +7,11 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.core.os.bundleOf
 import com.example.yumarketforowners.adapter.ModelRecyclerAdapter
-import com.example.yumarketforowners.adapter.listener.orderlist.OrderViewHolderListener
 import com.example.yumarketforowners.data.model.orderlist.OrderModel
 import com.example.yumarketforowners.databinding.InnerFragmentOrderListBinding
 import com.example.yumarketforowners.extension.addItemDivider
 import com.example.yumarketforowners.screen.base.BaseFragment
+import com.example.yumarketforowners.screen.recyclerview.listener.orderlist.OrderViewHolderListener
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

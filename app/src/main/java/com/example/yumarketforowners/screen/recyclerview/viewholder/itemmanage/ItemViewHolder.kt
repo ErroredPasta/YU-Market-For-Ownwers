@@ -1,8 +1,8 @@
-package com.example.yumarketforowners.adapter.viewholder.itemmanage
+package com.example.yumarketforowners.screen.recyclerview.viewholder.itemmanage
 
-import com.example.yumarketforowners.adapter.listener.AdapterListener
-import com.example.yumarketforowners.adapter.listener.itemmanage.ItemManageViewHolderListener
-import com.example.yumarketforowners.adapter.viewholder.BaseViewHolder
+import com.example.yumarketforowners.screen.recyclerview.listener.AdapterListener
+import com.example.yumarketforowners.screen.recyclerview.listener.itemmanage.ItemManageViewHolderListener
+import com.example.yumarketforowners.screen.recyclerview.viewholder.BaseViewHolder
 import com.example.yumarketforowners.data.model.itemmanage.ItemModel
 import com.example.yumarketforowners.databinding.ViewHolderItemBinding
 

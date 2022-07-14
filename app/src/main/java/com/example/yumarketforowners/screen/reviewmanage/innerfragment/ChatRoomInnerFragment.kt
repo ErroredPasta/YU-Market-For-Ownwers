@@ -2,7 +2,7 @@ package com.example.yumarketforowners.screen.reviewmanage.innerfragment
 
 import android.widget.Toast
 import com.example.yumarketforowners.adapter.ModelRecyclerAdapter
-import com.example.yumarketforowners.adapter.listener.reviewmanage.ChatRoomViewHolderListener
+import com.example.yumarketforowners.screen.recyclerview.listener.reviewmanage.ChatRoomViewHolderListener
 import com.example.yumarketforowners.data.model.reviewmanage.ChatRoomModel
 import com.example.yumarketforowners.screen.reviewmanage.ReviewManageContract
 import dagger.hilt.android.AndroidEntryPoint

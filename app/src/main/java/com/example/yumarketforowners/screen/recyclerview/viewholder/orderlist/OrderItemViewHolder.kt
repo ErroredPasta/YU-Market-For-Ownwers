@@ -1,6 +1,6 @@
-package com.example.yumarketforowners.adapter.viewholder.orderlist
+package com.example.yumarketforowners.screen.recyclerview.viewholder.orderlist
 
-import com.example.yumarketforowners.adapter.viewholder.BaseViewHolder
+import com.example.yumarketforowners.screen.recyclerview.viewholder.BaseViewHolder
 import com.example.yumarketforowners.data.model.itemmanage.ItemModel
 import com.example.yumarketforowners.databinding.ViewHolderOrderItemBinding
 import com.example.yumarketforowners.extension.clear

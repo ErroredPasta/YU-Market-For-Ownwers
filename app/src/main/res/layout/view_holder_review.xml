@@ -11,7 +11,7 @@
 
         <variable
             name="listener"
-            type="com.example.yumarketforowners.adapter.listener.reviewmanage.ReviewViewHolderListener" />
+            type="com.example.yumarketforowners.screen.recyclerview.listener.reviewmanage.ReviewViewHolderListener" />
 
     </data>
 

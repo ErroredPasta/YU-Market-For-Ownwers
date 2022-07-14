@@ -3,9 +3,9 @@ package com.example.yumarketforowners.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import com.example.yumarketforowners.adapter.listener.AdapterListener
-import com.example.yumarketforowners.adapter.viewholder.BaseViewHolder
-import com.example.yumarketforowners.adapter.viewholder.CellType
+import com.example.yumarketforowners.screen.recyclerview.listener.AdapterListener
+import com.example.yumarketforowners.screen.recyclerview.viewholder.BaseViewHolder
+import com.example.yumarketforowners.screen.recyclerview.viewholder.CellType
 import com.example.yumarketforowners.data.model.BaseModel
 import com.example.yumarketforowners.util.ViewHolderMapper
 
